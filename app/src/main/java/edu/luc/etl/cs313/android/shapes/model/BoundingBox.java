@@ -22,10 +22,10 @@ public class BoundingBox implements Visitor<Location> {
 
     @Override
     public Location onGroup(final Group g) {
-        int minX = Integer.MIN_VALUE;
-        int minY = Integer.MIN_VALUE;
-        int maxX = Integer.MAX_VALUE;
-        int maxY = Integer.MAX_VALUE;
+        int minX = Integer.MAX_VALUE;
+        int minY = Integer.MAX_VALUE;
+        int maxX = Integer.MIN_VALUE;
+        int maxY = Integer.MIN_VALUE;
 
         for(Shape s : g.getShapes()) {
             Location box = s.accept(this);
@@ -50,7 +50,7 @@ public class BoundingBox implements Visitor<Location> {
         return new Location(
                 location_box.getX() + l.getX(),
                 location_box.getY() + l.getY(),
-                location_box.getShape());
+                (Rectangle)location_box.getShape());
     }
 
     @Override

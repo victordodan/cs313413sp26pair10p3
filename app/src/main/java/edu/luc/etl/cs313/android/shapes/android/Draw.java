@@ -86,7 +86,7 @@ public class Draw implements Visitor<Void> {
 
         final float[] pts = new float[4*n];
 
-        for(int k = 0; k < n-1; k++){
+        for(int k = 0; k < n; k++){
             Point p1 = s.getPoints().get(k);
             Point p2 = s.getPoints().get((k+1)%n);
             pts[k*4] = p1.getX();
